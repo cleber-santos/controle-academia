@@ -31,8 +31,9 @@
 
 ### Objetivo
 
-Nesta fase do bootcamp, foi proposto a criação de um site para gerenciamento e cadastramento de instrutores de academia e alunos.  
-Usando o Nunjucks como template engine e criando um servidor com node.js
+Nesta fase do bootcamp, foi proposto a criação de um gerenciador de academias onde pode-se cadastrar instrutores e membros de uma academia.  
+Pode ser feito a adição, alteração e exclusão de instrutores e membros.  
+Usando o Node/Express como framework e o Nunjucks como template engine.  
 
 
 ## :gear: Como usar
