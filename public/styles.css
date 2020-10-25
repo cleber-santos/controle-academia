@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+:root {
+    --color-primary: #7159c1;
+    --color-secondary: #f7df1e;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+body{
+    background: var(--color-primary);
+    font-family: 'Roboto', sans-serif;
+}
+
+header{
+    background-color: white;
+    width: 100%;
+    padding: 32px;
+    text-align: center;
+    box-sizing: border-box; /* com isso o padding respeita o 100% do width */
+}
+
+/* formatar links do header */
+
+.links{
+    font-size: 22px;
+}
+
+.links a {
+    text-decoration: none;
+    color: #777;
+    position: relative;
+}
+
+.links a + a {
+    margin-left: 32px;
+}
+
+
+.links a.active {
+    font-weight: bold;
+    color: var(--color-primary);
+}
+
+.links a:hover {
+    color: var(--color-primary);
+}
+
+/* criar animação no underline dos links */
+
+.links a::after {
+    /* ::after é um pseudo-código, onde ele acrescenta elementos no html */
+    content: "";
+    width: 0;
+    height: 2px;
+    background-color: var(--color-primary);
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+}
+
+.links a:hover::after {
+    width: 100%;
+    /* O transition pode animar alguns elementos no meu caso é o width */
+    transition: width 200ms ease-in-out;
+}
+
+/* card */
+
+.card {
+    background-color: white;
+    width: 800px;
+    min-height: 400px;
+
+    margin: 45px auto;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    /* box-shadow: eixo-x eixo-y blur spread color; */
+    box-shadow: 0px 2px 6px -2px rgba(0, 0, 0, 0.5);
+
+    /* ===== Criar uma animação no card ====*/
+        /* animation: nomeDaVariável_no_@keyframe  duração_da_animação  tipo_de_Transição */
+    animation: up 200ms ease;
+}
+
+@keyframes up {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Details */
+
+.details {
+    padding: 32px;
+}
+
+.details .item {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 16px 0;
+}
+
+.details .item:last-child {
+    border: none;
+}
+
+.details h3,
+.details .item div:nth-child(1) {
+    font-size: 14px;
+    line-height: 24px;
+    color: #777;
+    letter-spacing: 0.7px;
+    font-weight: normal;
+}
+
+.details .item div:nth-child(2) {
+    color: #555555;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.details h3 {
+    text-transform: uppercase;
+    font-weight: bold;
+    color: var(--color-primary);
+}
+
+.details .item div:nth-child(2) span {
+    padding: 8px 16px;
+    background-color: var(--color-secondary);
+    border-radius: 16px;
+    color: #777;
+    margin-right: 4px;
+    margin-top: 8px;
+    display: inline-block; /* para o span aceitar o margin-top*/
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+/* Form */
+
+input {
+    width: 100%;
+    outline: none;
+    color: #555555;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+input[type="radio"] {
+    width: initial;
+    margin-right: 4px;
+}
+
+input::placeholder {
+    font-size: 16px;
+    font-weight: normal;
+}
+
+button[type="submit"],
+a.button {
+    padding: 8px 32px;
+    background-color: var(--color-primary);
+    color: white;
+    border-radius: 4px;
+    margin-top: 32px;
+    width: 100%;
+    font-size: 16px;
+}
+
+a.button {
+    display: block;
+    box-sizing: border-box; /* respeitar o tamanho do box */
+    text-align: center;
+    text-decoration: none;
+}
