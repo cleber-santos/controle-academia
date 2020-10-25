@@ -32,18 +32,18 @@
 ### Objetivo
 
 Nesta fase do bootcamp, foi proposto a criação de um site para gerenciamento e cadastramento de instrutores de academia e alunos.  
-Usando o Nunjuncks como template engine e criando um servidor com node.js
+Usando o Nunjucks como template engine e criando um servidor com node.js
 
 
 ## :gear: Como usar
 ```bash
-# Clone este repositorio
+# Clone este repositório
 $ git clone https://github.com/cleber-santos/controle-academia.git
 
-# Va até o repositorio
+# Va até o repositório
 $ cd controle-academia
 
-# Instale as depedencias do projeto
+# Instale as dependências do projeto
 $ npm install
 
 # Rode o servidor
@@ -54,7 +54,7 @@ $ npm start
 ## :film_strip: Demonstração
 
 #### Em construção 🚧
-![gif]()
+<!-- ![gif]() -->
 
 ---
 
