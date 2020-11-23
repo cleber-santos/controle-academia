@@ -69,7 +69,6 @@ exports.post = function(req,res) {
 }
 
 // edit
-
 exports.edit = function(req,res){
     const { id } = req.params
 
@@ -105,7 +104,7 @@ exports.put = function(req,res){
     const instructor = {
         ... foundInstructor,
         ... req.body,
-        birth: Date.parse(req.body.birth)
+        birth: Date.parse(req.body.birth)//tráz o birth atualizado do req.body
     }
 
     data.instructors[index] = instructor
@@ -113,7 +112,7 @@ exports.put = function(req,res){
     fs.writeFile("data.json", JSON.stringify(data, null, 2), function(err){
         if(err) return res.send("white error!")
 
-        return res.redirect('/instructors/{{id}}')
+        return res.redirect(`/instructors/${id}`)
     })
 }
 
