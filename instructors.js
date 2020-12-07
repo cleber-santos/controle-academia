@@ -106,7 +106,8 @@ exports.put = function(req,res){
     const instructor = {
         ... foundInstructor,
         ... req.body,
-        birth: Date.parse(req.body.birth)//tráz o birth atualizado do req.body
+        birth: Date.parse(req.body.birth),//tráz o birth atualizado do req.body
+        id: Number(req.body.id)
     }
 
     data.instructors[index] = instructor
