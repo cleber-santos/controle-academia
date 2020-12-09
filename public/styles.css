@@ -206,10 +206,17 @@ a.button {
     text-align: left;
 }
 
+th {
+    text-transform: uppercase;
+    color: #777;
+    font-size: 14px;
+}
+
 td, th {
     padding: 16px;
     border-bottom: 1px solid #d9d9d9;
 }
+
 tbody tr:last-child td{
     border-bottom: 0;
 }
@@ -228,4 +235,18 @@ tbody tr td:first-child span{
     border-radius: 50%;
     box-shadow: 3px 1px 6px -4px black;
     border: 2px solid white;
+}
+tbody tr td:last-child a {
+    background-color: var(--color-primary);
+    padding: 8px 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: white;
+    font-size: 12px;
+    border-radius: 4px;
+}
+
+.table-container thead tr th:last-child,
+td:last-child {
+    text-align: center;
 }
