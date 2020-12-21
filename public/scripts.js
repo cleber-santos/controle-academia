@@ -1,11 +1,10 @@
-// querySelector vai selecionar qualquer elemento baseado em classes, id`s ou o próprio nome da tag(ex. body).
+// adicionar a class active, para saber qual pagina está sendo visualizada no header.
 
-const modalOverlay = document.querySelector('.modal-overlay')
-const cards = document.querySelectorAll('.card')// vai pegar todos elementos com a classe 'card'.
+const currentPage = location.pathname //mostra qual pagina está
+const menuItems = document.querySelectorAll("header .links a") //seleciona no header todos os links
 
-for (let card of cards) {
-    card.addEventListener("click", function(){
-        const videoId = card.getAttribute("id")
-        window.location.href = `/video?id=${videoId}`
-    })
+for (item of menuItems){
+    if (currentPage.includes(item.getAttribute("href"))) {
+        item.classList.add("active")
+    }
 }
