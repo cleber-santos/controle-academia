@@ -1,6 +1,16 @@
 {
   "members": [
-    
+    {
+      "avatar_url": "https://images.unsplash.com/photo-1570104467660-60bdebbfa5b4?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80",
+      "name": "Cleber Santos",
+      "email": "teste@teste.com",
+      "birth": 444960000000,
+      "gender": "M",
+      "blood": "O1",
+      "weight": "89",
+      "height": "179",
+      "id": 1
+    }
   ],
 
   "instructors": [

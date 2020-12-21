@@ -42,22 +42,22 @@ exports.post = function(req,res) {
         //req.body[key] // É o mesmo que usar req.body.avatar_url (exemplo)
     }
 
-    // Desestruturar o req.body
-    let {avatar_url, name, birth, gender, services} = req.body
 
-    birth = Date.parse(birth) // altera a data em milissegundos
-    const created_at = Date.now() // coloca a data de criação do cadastro (em milissegundos)
-    const id = Number(data.members.length + 1) // Criar um ID numérico
+    birth = Date.parse(req.body.birth) // altera a data em milissegundos
+
+    // logica para criar o primeiro ID e não haver repetições de valores.
+    let id = 1
+    const lastMember = data.members[data.members.length -1]
+
+    if (lastMember){
+        id = lastMember.id + 1
+    }
 
     // para o fs adicionar novos arrays no data.json
     data.members.push({
         id,
-        name,
+        ...req.body,
         birth,
-        gender,
-        avatar_url,
-        services,
-        created_at,
     })
 
     // Criar um arquivo json na raiz, com os dados informado do formulário.
