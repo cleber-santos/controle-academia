@@ -1,34 +1,34 @@
 const fs = require('fs') // fileSystem
-const data = require("./data.json")
-const {age, date} = require("./utils")
+const data = require("../data.json")
+const {age, date} = require("../utils")
 const Intl = require('intl') // Intl do npm
 
 exports.index = function(req,res){
-    return res.render("instructors/index", { instructors: data.instructors})
+    return res.render("members/index", { members: data.members})
 }
 
-// Show
 exports.show = function(req, res){
     const { id } = req.params // retirando o id do req.params e transformando em variável
 
-    const foundInstructor = data.instructors.find(function(instructor){
-        return instructor.id == id
+    const foundMember = data.members.find(function(member){
+        return member.id == id
     })
 
-    if (!foundInstructor) return res.send("Instructor not found!")
+    if (!foundMember) return res.send("Member not found!")
 
     // corrigir as informações da renderização.
-    const instructor = {
-        ... foundInstructor, // spread do resto das informações
-        birth: age(foundInstructor.birth),
-        services: foundInstructor.services.split(","),
-        created_at: new Intl.DateTimeFormat("pt-BR").format(foundInstructor.created_at)// para o pt-BR deve instalar o intl pelo npm (npm i intl)
+    const member = {
+        ... foundMember, // spread do resto das informações
+        birth: age(foundMember.birth),
     }
 
-    return res.render("instructors/show", {instructor})
+    return res.render("members/show", {member})
 }
 
-// create
+exports.create = function(req,res){
+    return res.render('members/create')
+}
+
 exports.post = function(req,res) {
 
     const keys = Object.keys(req.body) // Cria um array com as keys do formulário.
@@ -47,10 +47,10 @@ exports.post = function(req,res) {
 
     birth = Date.parse(birth) // altera a data em milissegundos
     const created_at = Date.now() // coloca a data de criação do cadastro (em milissegundos)
-    const id = Number(data.instructors.length + 1) // Criar um ID numérico
+    const id = Number(data.members.length + 1) // Criar um ID numérico
 
     // para o fs adicionar novos arrays no data.json
-    data.instructors.push({
+    data.members.push({
         id,
         name,
         birth,
@@ -65,73 +65,70 @@ exports.post = function(req,res) {
     fs.writeFile("data.json", JSON.stringify(data, null, 2), function(err){
         if (err) return res.send("Write file error!")
 
-        return res.redirect("/instructors") // se não ocorrer nenhum erro, ele retorna para a pagina.
+        return res.redirect("/members") // se não ocorrer nenhum erro, ele retorna para a pagina.
     })
 
 }
 
-// edit
 exports.edit = function(req,res){
     const { id } = req.params
 
-    const foundInstructor = data.instructors.find(function(instructor){
-        return instructor.id == id
+    const foundMember = data.members.find(function(member){
+        return member.id == id
     })
 
-    if (!foundInstructor) return res.send("Instructor not found!")
+    if (!foundMember) return res.send("Member not found!")
 
-    const instructor = {
-        ...foundInstructor,
-        birth: date(foundInstructor.birth)
+    const member = {
+        ...foundMember,
+        birth: date(foundMember.birth)
     }
 
 
-    return res.render('instructors/edit', {instructor})
+    return res.render('members/edit', {member})
 }
 
-// PUT - update
 exports.put = function(req,res){
     const { id } = req.body
     let index = 0
 
-    const foundInstructor = data.instructors.find(function(instructor, foundIndex){
-        if (id == instructor.id){
+    const foundMember = data.members.find(function(member, foundIndex){
+        if (id == member.id){
             index = foundIndex
             return true
         }
     })
 
-    if (!foundInstructor) return res.send("Instructor not found!")
+    if (!foundMember) return res.send("Member not found!")
 
-    const instructor = {
-        ... foundInstructor,
+    const member = {
+        ... foundMember,
         ... req.body,
         birth: Date.parse(req.body.birth),//tráz o birth atualizado do req.body
         id: Number(req.body.id)
     }
 
-    data.instructors[index] = instructor
+    data.members[index] = member
 
     fs.writeFile("data.json", JSON.stringify(data, null, 2), function(err){
         if(err) return res.send("white error!")
 
-        return res.redirect(`/instructors/${id}`)
+        return res.redirect(`/members/${id}`)
     })
 }
 
-// delete
 exports.delete = function(req,res){
     const { id } = req.body
 
-    const filteredInstructors = data.instructors.filter(function(instructor){
-        return instructor.id != id
+    const filteredMembers = data.members.filter(function(member){
+        return member.id != id
     })
 
-    data.instructors = filteredInstructors
+    data.members = filteredMembers
 
     fs.writeFile("data.json", JSON.stringify(data, null, 2), function(err){
         if(err) return res.send("White error!")
 
-        return res.redirect("/instructors")
+        return res.redirect("/members")
     })
 }
