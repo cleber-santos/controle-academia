@@ -9,21 +9,26 @@
     <table width="100%">
         <Thead>
             <tr>
-                <th>Instructors</th>
-                <th>Atendimento</th>
+                <th>Membro</th>
+                <th>Email</th>
+                <th>Peso</th>
+                <th>Altura</th>
                 <th>Ação</th>
             </tr>
         </Thead>
         <tbody>
 
-            {% for instructor in instructors %}
+            {% for member in members %}
 
             <tr>
                 <td>
-                    <span style="background-image:url({{instructor.avatar_url}})"></span>
-                    {{instructor.name}}</td>
-                <td>{{instructor.services}}</td>
-                <td><a href="/instructors/{{instructor.id}}">Ver</a></td>
+                    <span style="background-image:url({{member.avatar_url}})"></span>
+                    {{member.name}}
+                </td>
+                <td>{{member.email}}</td>
+                <td>{{member.weight}}</td>
+                <td>{{member.height}}</td>
+                <td><a href="/members/{{member.id}}">Ver</a></td>
             </tr>
 
             {% endfor %}
