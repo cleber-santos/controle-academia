@@ -7,24 +7,6 @@ exports.index = function(req,res){
     return res.render("members/index", { members: data.members})
 }
 
-exports.show = function(req, res){
-    const { id } = req.params // retirando o id do req.params e transformando em variável
-
-    const foundMember = data.members.find(function(member){
-        return member.id == id
-    })
-
-    if (!foundMember) return res.send("Member not found!")
-
-    // corrigir as informações da renderização.
-    const member = {
-        ... foundMember, // spread do resto das informações
-        birth: age(foundMember.birth),
-    }
-
-    return res.render("members/show", {member})
-}
-
 exports.create = function(req,res){
     return res.render('members/create')
 }
@@ -65,9 +47,27 @@ exports.post = function(req,res) {
     fs.writeFile("data.json", JSON.stringify(data, null, 2), function(err){
         if (err) return res.send("Write file error!")
 
-        return res.redirect("/members") // se não ocorrer nenhum erro, ele retorna para a pagina.
+        return res.redirect(`/members/${id}`) // se não ocorrer nenhum erro, ele retorna para a pagina.
     })
 
+}
+
+exports.show = function(req, res){
+    const { id } = req.params // retirando o id do req.params e transformando em variável
+
+    const foundMember = data.members.find(function(member){
+        return member.id == id
+    })
+
+    if (!foundMember) return res.send("Member not found!")
+
+    // corrigir as informações da renderização.
+    const member = {
+        ... foundMember, // spread do resto das informações
+        birth: date(foundMember.birth).birthDay,
+    }
+
+    return res.render("members/show", {member})
 }
 
 exports.edit = function(req,res){
@@ -81,7 +81,7 @@ exports.edit = function(req,res){
 
     const member = {
         ...foundMember,
-        birth: date(foundMember.birth)
+        birth: date(foundMember.birth).iso
     }
 
 

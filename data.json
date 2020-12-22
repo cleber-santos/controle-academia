@@ -1,18 +1,50 @@
 {
   "members": [
     {
-      "avatar_url": "https://images.unsplash.com/photo-1570104467660-60bdebbfa5b4?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80",
-      "name": "Cleber Santos",
-      "email": "teste@teste.com",
-      "birth": 444960000000,
+      "id": 1,
+      "avatar_url": "https://images.unsplash.com/photo-1608498794353-3844bb6a11ea?ixid=MXwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw2N3x8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60",
+      "name": "King Lion",
+      "email": "lion@disney.com",
+      "birth": 957916800000,
       "gender": "M",
-      "blood": "O1",
-      "weight": "89",
-      "height": "179",
-      "id": 1
+      "blood": "A+",
+      "weight": "90",
+      "height": "110"
+    },
+    {
+      "id": 2,
+      "avatar_url": "https://images.unsplash.com/photo-1608498794353-3844bb6a11ea?ixid=MXwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw2N3x8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60",
+      "name": "Lion 2",
+      "email": "lion2@disney.com",
+      "birth": 958003200000,
+      "gender": "M",
+      "blood": "AB-",
+      "weight": "80",
+      "height": "120"
+    },
+    {
+      "id": 3,
+      "avatar_url": "https://images.unsplash.com/photo-1608575353225-1209465c5759?ixid=MXwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw2OXx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60",
+      "name": "teste",
+      "email": "email@teste.com",
+      "birth": 980985600000,
+      "gender": "M",
+      "blood": "B+",
+      "weight": "90",
+      "height": "110"
+    },
+    {
+      "id": 4,
+      "avatar_url": "https://images.unsplash.com/photo-1608575353225-1209465c5759?ixid=MXwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw2OXx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60",
+      "name": "teste4",
+      "email": "teste4@teste",
+      "birth": 1265068800000,
+      "gender": "F",
+      "blood": "AB-",
+      "weight": "90",
+      "height": "150"
     }
   ],
-
   "instructors": [
     {
       "id": 1,
