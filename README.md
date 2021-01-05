@@ -47,8 +47,7 @@ $ npm start
 
 ## :film_strip: Demonstração
 
-#### Em construção 🚧
-<!-- ![gif]() -->
+![gif](https://github.com/cleber-santos/controle-academia/blob/master/public/assets/Gym-Manager.gif)
 
 ---
 
