@@ -21,12 +21,6 @@
 
 </p>
 
-<br>
-<h2 align="center">
-🚧👨‍💻  Em desenvolvimento  👨‍💻🚧
-</h2>
-<br>
-
 ## ✍ Criando o site
 
 ### Objetivo
@@ -34,7 +28,6 @@
 Nesta fase do bootcamp, foi proposto a criação de um gerenciador de academias onde pode-se cadastrar instrutores e membros de uma academia.  
 Pode ser feito a adição, alteração e exclusão de instrutores e membros.  
 Usando o Node/Express como framework e o Nunjucks como template engine.  
-
 
 ## :gear: Como usar
 ```bash
